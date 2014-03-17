@@ -1,0 +1,33 @@
+$def with (content)
+<html>
+<head>
+<title> PDSD 2014 </title>
+</head>
+
+<body onload="initialize()">
+
+<div id="container" style="width:1000px">
+
+<div id="header" style="background-color:#dee7ec;">
+<h1 style="margin-bottom:0;">Proiect PDSD 2014 - $content.title</h1></div>
+
+<div id="menu" style="background-color:#ffffff;height:auto;width:150px;float:left;a.link { color: #56b04f; }">
+<h2>Menu</h2><br>
+<a href="/" style="color: #56b04f;font-size:x-large;">First page</a><br>
+<a href="/Victim" style="color: #56b04f;font-size:x-large;">Victim</a><br>
+<a href="/Criminal" style="color: #56b04f;font-size:x-large;">Criminal</a><br>
+
+</div>
+
+<div id="content" style="background-color:#ffffff;height:auto;width:850px;float:left;overflow:auto;">
+$:content
+</div>
+
+<div id="footer" style="background-color:#436976;clear:both;text-align:center;">
+Copyright © W3Schools.com</div>
+
+</div>
+
+
+</body>
+</html>
