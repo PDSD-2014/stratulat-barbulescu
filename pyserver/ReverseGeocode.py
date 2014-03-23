@@ -14,16 +14,19 @@ def get_geonames(lat, lng, types):
     filter_method = lambda x: len(set(x['types']).intersection(types))
     return filter(filter_method, address_comps)
 
-# Pensiunea Andre, Sinaia, Furnica
-lat, lng = 45.3571195, 25.5397671
 
-#MY home
-#lat, lng = 44.417126, 26.110211
-
-#Coordonatele accidentului din Apuseni
-#lat, lng = 46.6023,  22.98421
 if __name__ == '__main__':
+
     types = ['sublocality', 'locality', 'administrative_area_level_1', 'country', 'administrative_area_level_2' ]
+
+    # Pensiunea Andre, Sinaia, Furnica
+    lat, lng = 45.3571195, 25.5397671
+
+    #MY home
+    #lat, lng = 44.417126, 26.110211
+
+    #Coordonatele accidentului din Apuseni
+    #lat, lng = 46.6023,  22.98421
 
     # Display all geographical names along with their types
     for geoname in get_geonames(lat, lng, types):
