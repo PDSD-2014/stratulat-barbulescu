@@ -1,22 +1,35 @@
 $def with (content)
-<html>
-<head>
-<title> PDSD 2014 </title>
 
-<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=true">
-</script>
-<link rel="icon" type="image/png" href="favicon.ico">
-</head>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>PDSD 2014</title>
+
+	<script type="text/javascript"
+	    src="https://maps.googleapis.com/maps/api/js?sensor=true">
+	</script>
+
+
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="static/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="static/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- Import fancy-type plugin for the sample page. -->
+  </head>
 
 <body onload="initialize()">
 
-<div id="container" style="width:1000px">
+<div class="container">
+<hr class="space"/>
 
-<div id="header" style="background-color:#dee7ec;">
-<h1 style="margin-bottom:0;">Proiect PDSD 2014 - $content.title</h1></div>
-
-<div id="menu" style="background-color:#ffffff;height:auto;width:150px;float:left;a.link { color: #56b04f; }">
+<h1>Proiect PDSD 2014 - $content.title</h1>
+<hr class="space"/>
+<div id="menu" class="span-4 colborder">
 <h2>Menu</h2><br>
 <a href="/" style="color: #56b04f;font-size:x-large;">First page</a><br>
 <a href="/Victim" style="color: #56b04f;font-size:x-large;">Victim</a><br>
@@ -24,15 +37,14 @@ $def with (content)
 
 </div>
 
-<div id="content" style="background-color:#ffffff;height:auto;width:850px;float:left;overflow:auto;">
+<div id="content" class="span-19 last">
 $:content
 </div>
 
-<div id="footer" style="background-color:#436976;clear:both;text-align:center;">
-Copyright © W3Schools.com</div>
-
+<div id="footer" class="span-24">
+Hello !
 </div>
 
-
+</div>
 </body>
 </html>
