@@ -15,11 +15,11 @@ $def with (content)
 
 
     <!-- Framework CSS -->
-    <link rel="stylesheet" href="static/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="static/print.css" type="text/css" media="print">
-    <!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="static/screen.css" type="text/css">
 
     <!-- Import fancy-type plugin for the sample page. -->
+    <link rel="stylesheet" href="static/fancy-screen.css" type="text/css">
+
   </head>
 
 <body onload="initialize()">
@@ -28,9 +28,10 @@ $def with (content)
 <hr class="space"/>
 
 <h1>Proiect PDSD 2014 - $content.title</h1>
-<hr class="space"/>
+<hr/>
 <div id="menu" class="span-4 colborder">
-<h2>Menu</h2><br>
+<h2 class="alt">Menu</h2>
+<hr/>
 <a href="/" style="color: #56b04f;font-size:x-large;">First page</a><br>
 <a href="/Victim" style="color: #56b04f;font-size:x-large;">Victim</a><br>
 <a href="/Criminal" style="color: #56b04f;font-size:x-large;">Criminal</a><br>
