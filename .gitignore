@@ -32,3 +32,6 @@ proguard/
 *.pyc
 *.pyo
 *$py.class
+
+# run logs
+*.log
