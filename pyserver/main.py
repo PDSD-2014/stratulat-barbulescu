@@ -19,8 +19,7 @@ urls = (
     '/',        'index',
     '/Victim',  'Victim',
     '/Criminal','Criminal',
-    '/Test',     'Test',
-    '/favicon.ico',     'icon'
+    '/Test',     'Test'
 )
 
 render = web.template.render('templates/', base='layout')
@@ -43,7 +42,11 @@ class LocateGuy(object):
     
     def plot_last_locations(self, who_table, count = 5):
         locations = []
-        d = Database.Database()
+        try:
+            d = Database.Database()
+        except:
+            return render.index("Connection to Database failed! Consider starting MySQL server!")
+        
         rows = d.execute_sql("select lat, lng from %s order by PostedTime desc limit %s;" % (str(who_table), str(count)))
         
         for row in rows:
@@ -51,7 +54,8 @@ class LocateGuy(object):
             lng = row[1]
             locations.append((lat, lng))
 
-        return render.map_plot("text", locations)
+        return render.map_plot("Showing last %s locations from table %s" % (str(count),str(who_table))
+                               , locations)
 
 class Victim(LocateGuy):
     def GET(self):

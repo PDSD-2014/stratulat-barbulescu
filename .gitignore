@@ -35,3 +35,6 @@ proguard/
 
 # run logs
 *.log
+
+# geany prj
+*.geany
