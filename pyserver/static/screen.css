@@ -263,3 +263,8 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
+
+#footer  { background-color:#c6c; padding:5px 0; 
+            text-align:center; font-weight: bold; color: white;  }
+#header  { background-color:#6cc; padding:5px 0; 
+            text-align:center; font-weight: bolder; }

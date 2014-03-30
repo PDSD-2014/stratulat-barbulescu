@@ -14,10 +14,11 @@ BKP_CNT = 5             #number of backups
 class PDSDlogging(object):
 
     def __init__(self,
+                logger_name = 'PDSD_WebServer_Logger',
                 log_filename=configuration.DEFAULT_LOG_FILE,
                 log_level = logging.DEBUG):
 
-        self.logger = logging.getLogger('PDSD_WebServer_Logger')
+        self.logger = logging.getLogger(str(logger_name))
         self.filename = log_filename
         self.handler = None
     

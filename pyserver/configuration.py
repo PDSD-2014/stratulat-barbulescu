@@ -24,3 +24,5 @@ DB_USR = "root"
 DB_PASSWD = "root"
 
 DEFAULT_LOG_FILE = './PDSDserver.log'
+
+README_FILE_PATH = '../README.md'

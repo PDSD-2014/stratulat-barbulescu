@@ -1,0 +1,28 @@
+$def with (nothing)
+
+$var title: Project Documentation 
+ $var footer: Showing ../README.md
+
+<h1>stratulat-barbulescu</h1>
+<p>Python Server dependency list:</p>
+<ul>
+<li><a href="https://pypi.python.org/pypi/setuptools">python-setuptools</a> - you can install it in Ubuntu/Fedora using apt/yum. </li>
+<li><a href="http://pytz.sourceforge.net/">pytz</a> - can be installed using setuptools:</li>
+</ul>
+<p><code>sh
+sudo easy_install pytz</code></p>
+<ul>
+<li><a href="http://webpy.org">web.py</a> - can be also installed using setuptools</li>
+</ul>
+<p><code>sh
+sudo easy_install web.py</code></p>
+<ul>
+<li><a href="http://mysql-python.sourceforge.net/">python-mysqldb</a> - can be installed in Ubuntu/Fedora using apt/yum. </li>
+</ul>
+<h2>Running the server</h2>
+<p>You can run the server easily by starting <code>main.py</code> from the <code>pyserver</code> folder</p>
+<p><code>sh
+python main.py</code></p>
+<p>By default it will start on port <code>8080</code>, so if <code>8080</code> is busy, you can start it on different port:</p>
+<p><code>sh
+python main.py 8000</code></p>

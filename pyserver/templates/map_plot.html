@@ -29,8 +29,8 @@ $var footer: $text
             
         // Multiple Markers
         var markers = [
-            $for (lat, lng) in dummy_list:
-                [" ", $lat, $lng],
+            $for (tag, lat, lng) in dummy_list:
+                ["$tag", $lat, $lng],
         ];
                             
         // Display multiple markers on a map
