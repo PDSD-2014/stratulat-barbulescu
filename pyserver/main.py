@@ -39,6 +39,8 @@ urls = (
 
 render = web.template.render('templates/', base='layout')
 render_plain = web.template.render('templates/')
+
+criminal_count = 0
  
 class index:
     def GET(self):
@@ -161,6 +163,7 @@ class Victim(LocateGuy):
         return render.victim(fmt_addr, retstr, str(i.lat), str(i.lng))
 
 class GetAndroidData():
+    
     def GET(self):
         raise Exception("Not Implemented")
     
@@ -168,9 +171,19 @@ class GetAndroidData():
         i = web.input(lat=45, lng=42, the_type="CriminalLocation")
         locg = LocateGuy()
         locg.add_to_db(i.lat, i.lng, i.the_type)
-        print "Done sending to database your data: %s, %s, %s" % (str(i.lat),
+        log.debug( "Done sending to database this data from a POST request in GetAndroidData(): %s, %s, %s" % (str(i.lat),
                             str(i.lng),
-                            str(i.the_type))
+                            str(i.the_type)) )
+        global criminal_count
+        criminal_count = criminal_count + 1
+        
+        if(criminal_count > (sys.maxint - 2) ):
+            criminal_count = 0
+        
+        return "Done sending to database your data: %s, %s, %s. Counter = %s\n\n" % (str(i.lat),
+                            str(i.lng),
+                            str(i.the_type), str(criminal_count))
+                            
 
 class Criminal(LocateGuy):
     def GET(self):
