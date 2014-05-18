@@ -4,6 +4,9 @@ import sys, logging
 import SimpleHTTPServer
 import cgi
 
+import datetime
+import pytz
+
 import urllib, json
 import pprint
 
@@ -31,6 +34,7 @@ urls = (
     '/Victim',  'Victim',
     '/Criminal','Criminal',
     '/Test',     'Test',
+    '/GetAndroidData',     'GetAndroidData',
 )
 
 render = web.template.render('templates/', base='layout')
@@ -74,6 +78,45 @@ class LocateGuy(object):
         self.lat = 0
         self.lng = 0
     
+    #whom is only VictimLocation or CriminalLocation    
+    def add_to_db(self, lat, lng, whom):
+        try:
+            db = Database.Database()
+        except:
+            return render.index("Connection to Database failed! Consider starting MySQL server!")
+        
+        crt_date = datetime.datetime.now(pytz.timezone("Europe/Bucharest"))
+        fmt = '%Y-%m-%d %H:%M:%S'
+        d_string = crt_date.strftime(fmt)
+        
+        types = ['route',
+                'sublocality', 
+                'administrative_area_level_1', 
+                'administrative_area_level_2', 
+                'country']
+        to_db = dict()
+        filter_types = ['route',
+                'sublocality', 
+                'administrative_area_level_1', 
+                'administrative_area_level_2', 
+                'country']
+        for geoname in get_geonames(lat, lng, types):
+            common_types = set(geoname['types']).intersection(set(filter_types))
+            tmp_key = str(list(common_types)[0])
+            to_db[tmp_key] = u'{}'.format(geoname['long_name'])
+        if 'administrative_area_level_1' in to_db.keys():
+            to_db['sublocality'] = to_db.pop('administrative_area_level_1')
+        result = db.execute_sql("INSERT INTO %s (lat,lng,PostedTime,route, \
+        sublocality, city, country) values (%s,%s,'%s','%s','%s','%s','%s');" % (whom, str(lat), str(lng),
+                                                        d_string,
+                                                        to_db['route'],
+                                                        to_db['sublocality'],
+                                                        to_db['administrative_area_level_2'],
+                                                        to_db['country']
+                                                       )
+                               )
+        print result
+            
     def plot_last_locations(self, who_table, count = 5):
         locations = []
         try:
@@ -102,7 +145,6 @@ class Victim(LocateGuy):
     def GET(self):
         return super(Victim, self).plot_last_locations("VictimLocation", 5)
         
-
     def POST(self):
         i = web.input(lat=45, lng=42)
         #Process some reverse geocoding        
@@ -117,6 +159,18 @@ class Victim(LocateGuy):
             retstr =  retstr + '{} {}'.format(geoname['long_name'], ', ') + '  '
  
         return render.victim(fmt_addr, retstr, str(i.lat), str(i.lng))
+
+class GetAndroidData():
+    def GET(self):
+        raise Exception("Not Implemented")
+    
+    def POST(self):
+        i = web.input(lat=45, lng=42, the_type="CriminalLocation")
+        locg = LocateGuy()
+        locg.add_to_db(i.lat, i.lng, i.the_type)
+        print "Done sending to database your data: %s, %s, %s" % (str(i.lat),
+                            str(i.lng),
+                            str(i.the_type))
 
 class Criminal(LocateGuy):
     def GET(self):
