@@ -1,0 +1,14 @@
+$def with (list, nr)
+
+$var title: Project Documentation
+$var footer: Showing last $nr distances
+
+
+Distances between Victim and Criminal:
+
+<table>
+$for c in list:
+    <tr>
+        <td>$c km</td>
+    </tr>
+</table>
