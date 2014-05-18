@@ -1,5 +1,6 @@
 import json
 import urllib2
+import unicodedata
 
 fmt_addr = None
 
@@ -8,8 +9,12 @@ def get_geonames(lat, lng, types):
             '?latlng={},{}&sensor=false'.format(lat, lng)
     #print url
     jsondata = json.load(urllib2.urlopen(url))
-    global fmt_addr
-    fmt_addr = str(jsondata['results'][0]['formatted_address'])
+    
+    #Paranoic: normalize query, to have characters stupid unicode str conversion accepts
+    unicode_query = u''
+    unicode_query = unicode_query + jsondata['results'][0]['formatted_address']
+    
+    fmt_addr = unicodedata.normalize('NFKD', unicode_query).encode('ascii', 'ignore') 
     address_comps = jsondata['results'][0]['address_components']
     filter_method = lambda x: len(set(x['types']).intersection(types))
     return filter(filter_method, address_comps)
