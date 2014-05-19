@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pdsd-restrain</string>
+    <string name="msg_enter_warn">Entered warn perimeter</string>
+    <string name="msg_exit_warn">Exiting warn perimeter</string>
+    <string name="msg_enter_trigger">Entered trigger perimeter</string>
+    <string name="msg_exit_trigger">"Exiting trigger perimeter</string>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">restrain</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_geofences_result_success">Perimetru adaugat cu succes</string>
+    <string name="add_geofences_result_failure">Perimetrul nu a putut fi adaugat</string>
+	<string name="connected">Conectat</string>
+	<string name="disconnected">Deconectat</string>
+	
+	<string name="connection_error_misconfigured">Eroare la conectare - misconfigured</string>
+	<string name="connection_error_internal"></string>
+	<string name="connection_error_invalid_account"></string>
+	<string name="connection_error_license_check_failed"></string>
+	<string name="connection_error_network"></string>
+	<string name="connection_error_needs_resolution"></string>
+	<string name="connection_error_disabled"></string>
+	<string name="connection_error_invalid"></string>
+	<string name="connection_error_missing"></string>
+	<string name="connection_error_outdated"></string>
+	<string name="connection_error_sign_in_required"></string>
+	<string name="connection_error_unknown"></string>
+	
+	<string name="remove_geofences_id_failure"></string>
+	<string name="remove_geofences_id_success"></string>
+	<string name="remove_geofences_intent_failure"></string>
+	<string name="remove_geofences_intent_success"></string>
+
+	<string name="geofence_transition_error_detail"></string>
+	<string name="geofence_transition_notification_title"></string>
+	<string name="geofence_transition_notification_text"></string>
+	<string name="geofence_transition_invalid_type"></string>
+	<string name="geofence_transition_entered"></string>
+	<string name="geofence_transition_exited"></string>
+	<string name="geofence_transition_unknown"></string>
+	
+	<string name="no_resolution"></string>
+	<string name="unknown_activity_request_code"></string>
+	<string name="play_services_available"></string>
+	
+	<string name="remove_geofences_already_requested_error"></string>
+	<string name="add_geofences_already_requested_error"></string>
+	<string name="geofence_input_error_missing"></string>
+	<string name="geofence_input_error_latitude_invalid"></string>
+	<string name="geofence_input_error_longitude_invalid"></string>
+	<string name="geofence_input_error_radius_invalid"></string>
+	<string name="invalid_action"></string>
+	<string name="invalid_action_detail"></string>
+	
+	<string name="lat_lng_pattern"></string>
+	<string name="radius_pattern"></string>
+</resources>

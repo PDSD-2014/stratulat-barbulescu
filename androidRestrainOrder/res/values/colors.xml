@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="invalid">#ffa4a4a4</color>
+    <color name="safe">#ff00ff00</color>
+    <color name="warn">#ffffff00</color>
+    <color name="trig">#ffff0000</color>
+</resources>
